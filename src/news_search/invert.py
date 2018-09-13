@@ -6,11 +6,9 @@ from django.http import HttpResponse
 
 
 def invert(request):
-    # clear index
-    Index.objects.all().delete()
-
     # seg words
-    for news in News.objects.all():
+    newss = News.objects.filter(pk__gt=780) # pk > has_seg_pk
+    for news in newss:
         seg_set = set(jieba.cut_for_search(news.text))
         seg_set |= set((jieba.cut_for_search(news.robots_title)))
         # invert index

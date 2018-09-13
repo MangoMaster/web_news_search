@@ -1,2 +1,86 @@
-{{news_list}}
-{{object_list}}
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8" />
+    <title>{{ search_text }} -- Penguin News Search</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'news_search/css/search_results.css' %}" />
+</head>
+
+<body>
+    <!--top-->
+    <div class="top">
+        <div class="pic">
+            <a href="{% url 'news_search:search_main' %}"><img class="logo" src="{% static 'news_search/images/penguin.jpg' %}" /></a>
+        </div>
+        <div class="slogan">
+            Penguin News Search
+        </div>
+        <div class="search">
+            <form action="{% url 'news_search:search' %}" method="get">
+                <input class="input" type="text" name="search_text" value="{{ search_text }}" />
+                <input class="btn" type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+    <!--top end-->
+    <hr />
+
+    <!--result count & search time-->
+    <div class="search_results_analysis">
+        找到结果约{{ page_obj.paginator.count }}条 用时约{{ search_time }}秒
+    </div>
+    <!--result count & search time end-->
+
+    <!--word found-->
+    {% if news_list %}
+
+    <!--search results-->
+    <div class="search_results">
+        <ul>
+            {% for news in news_list %}
+            <li>
+                <a class="robots_title" href="{% url 'news_search:detail' news.pk %}">{{news.robots_title }}</a>
+                <p class="url">localhost:8000{% url 'news_search:detail' news.pk %}</p>
+                <p class="robots_description">{{ news.robots_description }}</p>
+            </li>
+            {% endfor %}
+            <script type="text/javascript">
+                function key_em(element_class_name, key) {
+                    var elements = document.getElementsByClassName(element_class_name);
+                    for (i = 0; i < elements.length; ++i) {
+                        var text = elements[i].innerHTML;
+                        var key_em = "<em>" + key + "</em>";
+                        text = text.replace(new RegExp(key, 'g'), key_em);
+                        elements[i].innerHTML = text;
+                    }
+                }
+                key_em("robots_title", "{{ search_text }}");
+                key_em("robots_description", "{{ search_text }}");
+            </script>
+        </ul>
+    </div>
+    <!--search results end-->
+
+    <!--word not found-->
+    {% else %}
+    <div class="error_message">
+        <p>没有找到包含该关键词的结果！</p>
+    </div>
+    {% endif %}
+
+    <!--page number-->
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="{% url 'news_search:search_results' search_text page_obj.previous_page_number %}">上一页</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <a href="{% url 'news_search:search_results' search_text page_obj.next_page_number %}">下一页</a>
+        {% endif %}
+        第{{ page_obj.number }}页 共{{ page_obj.paginator.num_pages }}页
+    </div>
+    <!--page number end-->
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+.top {
+    display: table-cell;
+    vertical-align: middle;
+
+    width: 100%;    
+    height: 100px;
+}
+
+.top .pic {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+
+.top .logo {
+    height: 75px;
+    width: 75px;
+}
+
+.top .slogan {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+
+    font-family: "宋体";
+    font-size: 25px;
+    color: #36f;
+}
+
+.top .search {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.top .search .input {
+    width: 500px;
+    height: 36px;
+    font-family: "宋体";
+    font-size: 18px;
+    color: #222;
+}
+
+.top .search .btn {
+    border: 0;
+    width: 100px;
+    height: 40px;
+    background: #36f;
+    font-size: 15px;
+    color: #fff;
+}
+
+.search_results_analysis {
+    margin-left: 170px;
+    line-height: 30px;
+    font-family: "宋体";
+    font-size: 15px;
+    color: #666;
+}
+
+.search_results .robots_title {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 0px;
+    font-family: "宋体";
+    font-size: 22px;
+    color: #36f;
+}
+
+.search_results .robots_description {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 0px;
+    line-height: 30px;
+    font-family: "宋体";
+    font-size: 18px;
+    color: #222;
+}
+
+.search_results .url {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "宋体";
+    font-size: 14px;
+    color: #060;
+}
+
+.search_results em {
+    font-style: normal;
+    color: #f00;
+}
+
+.search_results ul li {
+    list-style-type: none;
+}
+
+.error_message {
+    margin-left: 130px;
+    font-family: "宋体";
+    font-size: 22px;
+    color: #36f;
+}
+
+.pagination {
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: "宋体";
+    font-size: 18px;
+    color: #222;
+}
