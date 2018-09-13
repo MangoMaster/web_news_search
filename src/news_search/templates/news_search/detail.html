@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title>{{ news.robots_title }}</title>
+    <meta name="description" content="{{ news.robots_description }}" />
+    <meta name="publishdate" content="{{ news.published_date }}">
+    <meta name="source" content="来源：人民网">
+    <link rel="stylesheet" type="text/css" href="{% static 'news_search/css/detail.css' %}" />
+</head>
+
+<body>
+    <!--top-->
+    <div class="top">
+        <a href="http://www.people.com.cn/" target="_blank">人民网首页</a>
+    </div>
+    <!--top end-->
+    <!--logo-->
+    <div class="logo">
+        <a href="http://www.people.com.cn" target="_blank">
+            <img src="{% static 'news_search/images/rmw_logo.gif' %}" width="112" height="46" />
+        </a>
+    </div>
+    <!--logo end-->
+
+    <!--text title-->
+    <div class="text_title">
+        <h1>{{ news.title }}</h1>
+    </div>
+    <!--text title end-->
+
+    <!--published date-->
+    <div class="published_date">
+        <p>published date: {{ news.published_date }}</p>
+    </div>
+    <!--published date end-->
+    <!--url-->
+    <div class="text_url">
+        原文链接：
+        <a href="{{ news.url }}" target="_blank">
+            {{ news.url }}
+        </a>
+    </div>
+    <!--url end-->
+
+    <hr />
+    <!--text-->
+    <div class="text">
+        {% autoescape off %}
+        {{ news.text }}
+        {% endautoescape %}
+    </div>
+    <!--text end-->
+    <hr />
+
+    <!--相关新闻-->
+    <div class="about_news">
+        <h2>相关新闻</h2>
+        <ul>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+        </ul>
+    </div>
+    <!--相关新闻 end-->

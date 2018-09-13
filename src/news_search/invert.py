@@ -17,12 +17,12 @@ def invert(request):
         for seg in seg_set:
             try:
                 index = Index.objects.get(word__exact=seg)
-            except Index.DoesNotExist: # not exist
+            except Index.DoesNotExist:  # not exist
                 index = Index(word=seg, index=str(news.pk), size=1)
                 index.save()
             except:
                 pass
-            else: # exist
+            else:  # exist
                 index.size += 1
                 index.index += "," + str(news.pk)
                 index.save()

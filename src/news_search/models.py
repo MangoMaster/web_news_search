@@ -16,9 +16,9 @@ class News(models.Model):
 
 
 class Index(models.Model):
-    word = models.CharField(max_length=10)
+    search_text = models.CharField(max_length=10)
     index = models.TextField()
-    size = models.IntegerField()
+    count = models.IntegerField()
 
     def __str__(self):
-        return self.word
+        return self.search_text

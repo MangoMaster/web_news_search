@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Penguin News Search Engine</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'news_search/css/search_main.css' %}" />
 </head>
 
-<link rel="stylesheet" type="text/css" href="{% static 'news_search/css/search_main.css' %}">
 
 <body>
     <div class="top">
@@ -19,14 +19,14 @@
 
     <div class="body">
         <div class="pic">
-            <img class="logo" src="{% static 'news_search/images/penguin.jpg' %}">
+            <img class="logo" src="{% static 'news_search/images/penguin.jpg' %}" />
         </div>
         <div class="slogan">
             Penguin News Search
         </div>
         <div class="search">
             <form action="{% url 'news_search:search' %}" method="get">
-                <input class="input" type="text" name="search" value="" />
+                <input class="input" type="text" name="search_text" value="" />
                 <input class="btn" type="submit" value="Search" />
             </form>
         </div>
