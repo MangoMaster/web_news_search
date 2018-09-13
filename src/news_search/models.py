@@ -19,3 +19,6 @@ class Index(models.Model):
     word = models.CharField(max_length=10)
     index = models.TextField()
     size = models.IntegerField()
+
+    def __str__(self):
+        return self.word

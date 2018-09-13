@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8" />
+    <title>Penguin News Search Engine</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'news_search/css/search_main.css' %}">
+
+<body>
+    <div class="top">
+        <div class="title">
+            <span>
+            </span>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="pic">
+            <img class="logo" src="{% static 'news_search/images/penguin.jpg' %}">
+        </div>
+        <div class="slogan">
+            Penguin News Search
+        </div>
+        <div class="search">
+            <form action="{% url 'news_search:search' %}" method="get">
+                <input class="input" type="text" name="search" value="" />
+                <input class="btn" type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="title">
+            <a href="">关于Penguin</a>
+        </div>
+    </div>
+</body>
+
+</html>

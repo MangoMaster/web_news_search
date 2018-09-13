@@ -8,7 +8,7 @@ from django.http import HttpResponse
 # 人民网爬虫
 def spider(request):
     base_url = "http://finance.people.com.cn"
-    url = "http://finance.people.com.cn/n1/2018/0913/c1004-30290051.html"
+    url = "http://finance.people.com.cn/n1/2018/0913/c1004-30290375.html"
     to_be = [url]
 
     # index
@@ -22,7 +22,7 @@ def spider(request):
     #     for sub_url in sub_urls:
     #         to_be.append(base_url + sub_url["href"])
 
-    for i in range(100000000):
+    for i in range(10000):
         try:
             # open url
             response = requests.get(to_be[-1])
@@ -38,7 +38,7 @@ def spider(request):
             robots_title = head.find("title").get_text()
 
             # check duplicate
-            if News.objects.filter(robots_title__exact=robots_title):
+            if News.objects.find(robots_title__exact=robots_title):
                 continue
 
             # robots_description
