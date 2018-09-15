@@ -56,8 +56,10 @@
                         elements[i].innerHTML = text;
                     }
                 }
-                key_em("robots_title", "{{ search_text }}");
-                key_em("robots_description", "{{ search_text }}");
+                {% for search_seg in search_segs %}
+                    key_em("robots_title", "{{ search_seg }}");
+                    key_em("robots_description", "{{ search_seg }}");
+                {% endfor %}
             </script>
         </ul>
     </div>
